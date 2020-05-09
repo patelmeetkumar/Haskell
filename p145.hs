@@ -4,10 +4,8 @@
 
 import Data.Char
 
-solution = solution' $ 10^9
-
-solution' :: Int -> Int
-solution' n = length $ -- the length of
+p145 :: Int -> Int
+p145 n = length $ -- the length of
     filter isReversible $ -- the reversible elements of
     optimise -- the optimised subset of
     [1..n] -- the list of inputs
@@ -34,3 +32,6 @@ reverseInt n =
     read . -- the Int read of
     reverse . --the string-reversal of
     show $ n -- the string representation of n
+
+result = p145 $ 10^9
+main = print result

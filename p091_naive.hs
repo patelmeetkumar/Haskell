@@ -8,10 +8,8 @@ data Point = Point Int Int deriving (Eq, Show)
 
 data Triangle = Triangle Point Point Point deriving (Show)
 
-solution = solution' 50
-
-solution' :: Int -> Int
-solution' n = 
+p091 :: Int -> Int
+p091 n = 
     let 
         candidates = [
             (Triangle o p1 p2) | 
@@ -68,4 +66,5 @@ candidates = [
             p1 /= p2
             ]
 
-rats = filter isRightAngleTriangle candidates
+result = p091 50 
+main = print result

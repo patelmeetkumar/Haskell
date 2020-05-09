@@ -39,3 +39,6 @@ onesComponent n
     | (n `mod` 100 < 20) = ones !! (n `mod` 20)
     | otherwise = concat[prefix, ones !! (n `mod` 10)]
     where prefix = if (n `mod` 100 > 19 && (n `mod` 10 /= 0)) then "-" else ""
+
+result = p017 1000
+main = print result

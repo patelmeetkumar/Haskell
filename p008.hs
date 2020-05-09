@@ -76,3 +76,4 @@ p008_good str m =
     map digitToInt str -- the list of Int-converted digits in str
 
 result = p008_good p008_string p008_m
+main = print result

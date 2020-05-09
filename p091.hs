@@ -1,6 +1,6 @@
 -- Find count of distinct right-angled triangles with one point at (0,0) and the remaining points on ([0..50], [0..50])
 
--- Rather than brute-forcing the solution, the RATs given by O, P1, P2 with P1.x > P2.x and P1.y > P2.y may be thought of as the sum of:
+-- Rather than brute-forcing the p091, the RATs given by O, P1, P2 with P1.x > P2.x and P1.y > P2.y may be thought of as the sum of:
 -- 1. The set of RATs with their RAs at P1
 -- 2. The set of RATs with their RAs at P2 (which is a mirror of the first set about the line x=y
 -- 3. The set of RATs with RA at either x=0 or y=0
@@ -13,10 +13,8 @@ import Data.Ratio
 
 data Point = Point Int Int deriving (Eq, Show)
 
-solution = solution' 50
-
-solution' :: Int -> Int
-solution' n =
+p091' :: Int -> Int
+p091' n =
     (3*(n^2)) + -- the set of RATs with RA at either x=0 or y=0, plus 
     2 * -- the double of 
     (sum $ -- the sum of
@@ -26,3 +24,6 @@ trianglesHaving :: Point -> Int -> Int
 trianglesHaving (Point x y) gridSize =
     min (y `div` (numerator dx)) ((gridSize - (x)) `div` denominator dx)
     where dx = x % y
+
+result = p091' 50
+main = print result
